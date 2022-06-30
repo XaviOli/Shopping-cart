@@ -83,15 +83,21 @@ function buy(id) {
         }
     }
 }
- 
+
 // Exercise 2
 function cleanCart() {
-
+   cartList.length = 0;
+   console.log(cartList);
 }
 
+
 // Exercise 3
-function calculateTotal() {
-    // Calculate total price of the cart using the "cartList" array
+function calculateTotal() { // Calculate total price of the cart using the "cartList" array
+    let sum = 0;
+        for (let i = 0; i < cartList.length; i++) {
+            sum += products[i].price;
+        }
+        console.log(sum);
 }
 
 // Exercise 4
