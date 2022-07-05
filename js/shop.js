@@ -90,7 +90,6 @@ function cleanCart() {
    console.log(cartList);
 }
 
-
 // Exercise 3
 function calculateTotal() { // Calculate total price of the cart using the "cartList" array
     let sum = 0;
@@ -101,10 +100,24 @@ function calculateTotal() { // Calculate total price of the cart using the "cart
 }
 
 // Exercise 4
-function generateCart() {
+
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
-}
+    function generateCart() {
+        
+        for (let i = 0; i <= cartList.length-1; i++) {
+            let itemSelected = cart.find((element) => element.id === cartList[i].id);
+              if (itemSelected !==undefined){
+                var itemIndex = cart.indexOf(itemSelected);
+                cart[itemIndex].quantity++;
+              } else {
+                let product = cartList[i];
+                product.quantity = 1;
+                cart.push(product);
+              }
+            }                
+        console.table("cart", cart);
+        }
 
 // Exercise 5
 function applyPromotionsCart() {

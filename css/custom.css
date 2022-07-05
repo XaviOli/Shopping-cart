@@ -1,0 +1,7 @@
+.gradient {
+    background-image: linear-gradient(to right, #FF512F, #DD2476) !important;
+}
+
+.footer-gradient {
+    background-image: linear-gradient(to right, #FF512F, #DD2476) !important;   
+}

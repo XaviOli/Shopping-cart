@@ -1,2 +1,14 @@
 
+$font-family: 'Roboto', sans-serif;
+
+$dark: #45a247;
+
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+.gradient {
+    background-color: black !important;
+}
+
+.button {
+    background-image: linear-gradient(to right, #FF512F, #DD2476);
+}
