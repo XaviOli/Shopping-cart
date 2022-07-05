@@ -1,7 +1,7 @@
 .gradient {
-    background-image: linear-gradient(to right, #FF512F, #DD2476) !important;
+    background-image: linear-gradient(to right, #FF512F, #DD2476);
 }
 
 .footer-gradient {
-    background-image: linear-gradient(to right, #FF512F, #DD2476) !important;   
+    background-image: linear-gradient(to right, #FF512F, #DD2476);   
 }
