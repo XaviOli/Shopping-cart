@@ -5,3 +5,85 @@
 .footer-gradient {
     background-image: linear-gradient(to right, #FF512F, #DD2476);   
 }
+
+.btn-outline-dark {
+    color:#FF512F;
+}
+
+.fa-shopping-basket {
+    color: #DD2476;
+}
+
+.fa-heart {
+    color: #DD2476;
+}
+
+.fa-tshirt {
+    color: #FF512F;
+}
+
+.glosery-text {
+    color: #DD2476;
+}
+
+.beauty-text {
+    color: #DD2476;
+}
+
+.clothes-text {
+    color: #FF512F;
+}
+
+.cooking-txt {
+    color: #DD2476;
+}
+
+.pasta-txt {
+    color: #DD2476;
+}
+
+.instant-txt {
+    color: #DD2476;
+}
+
+.all-txt {
+    color: #DD2476;
+}
+
+.zero-txt {
+    color: #DD2476;
+}
+
+.lip-txt {
+    color: #DD2476;
+}
+
+.lawn-txt {
+    color: #FF512F;
+}
+
+.chifon-txt {
+    color: #FF512F;
+}
+
+.toddler-txt {
+    color: #FF512F;
+
+}
+
+.button:hover {
+    color: purple;
+    background-color: #FF512F !important;
+}
+
+.shopping-txt {
+    color: #DD2476;
+}
+
+.mycart-text {
+    color: #DD2476;
+}
+
+.color-txt {
+    color: #DD2476;
+}

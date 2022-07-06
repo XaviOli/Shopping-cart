@@ -88,6 +88,8 @@ function buy(id) {
 function cleanCart() {
    cartList.length = 0;
    console.log(cartList);
+   cart.length = 0;
+
 }
 
 // Exercise 3
@@ -122,18 +124,18 @@ function calculateTotal() { // Calculate total price of the cart using the "cart
 // Exercise 5
 // Apply promotions to each item in the array "cart"
 
-let totalPriceId1 = (cart[i].quantity * cart[i].price);
-
 function applyPromotionsCart() {
 
-    for (let i = 0; i <= cart.length-1; i++) {
-        if (cart[i].id === 1 && cart[i].quantity >= 3) {
-
+    for (let i = 0; i < cart.length; i++) {
+        if ((cart[i].id === 1) && (cart[i].quantity >= 3)){
+            cart[i].subtotalWithDiscount = (cart[i].quantity) * 10;
         }
-
+        if ((cart[i].id === 3) && (cart[i].quantity >= 10)) {
+            cart[i].subtotalWithDiscount = (((cart[i].quantity) * (cart[i].price)) * 2 / 3);
+        }
     }
-    
-}
+    console.table("cart", cart);
+    }
 
 // Exercise 6
 function printCart() {
