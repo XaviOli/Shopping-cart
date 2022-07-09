@@ -3,7 +3,21 @@
 }
 
 .footer-gradient {
-    background-image: linear-gradient(to right, #FF512F, #DD2476);   
+    background-image: linear-gradient(to right, #FF512F, #DD2476); 
+
+}
+
+button:hover {
+    background-image: linear-gradient(to right, #FF512F, #DD2476); 
+ 
+}
+
+.checkout {
+    background-image: linear-gradient(to right, #FF512F, #DD2476);
+}
+
+.cleancart {
+    background-image: linear-gradient(to right, #FF512F, #DD2476);
 }
 
 .btn-outline-dark {

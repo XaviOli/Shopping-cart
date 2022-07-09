@@ -135,13 +135,51 @@ function applyPromotionsCart() {
         }
     }
     console.table("cart", cart);
-    }
+}
 
 // Exercise 6
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
-}
 
+    const modalCart = document.getElementById("cart_list");
+    modalCart.innerHTML = "";
+
+    let finalPriceDiscount = 0;
+    let finalRegularPrice = 0;
+
+        for (let i = 0; i < cart.length; i++) {
+           let tableRow = document.createElement("tr");
+           let itemName = document.createElement("th");
+               itemName.innerHTML = cart[i].name;
+           let itemPrice = document.createElement("td");
+               itemPrice.innerHTML = cart[i].price;
+           let itemQuantity = document.createElement("td");
+               itemQuantity.innerHTML = cart[i].quantity;
+           let itemTotal = document.createElement("td");
+              if (!cart[i].subtotalWithDiscount) {
+                 itemTotal.innerHTML = cart[i].price;
+              } else {
+                itemTotal.innerHTML = cart[i].subtotalWithDiscount;
+        }
+
+    tableRow.appendChild(itemName);
+    tableRow.appendChild(itemPrice);
+    tableRow.appendChild(itemQuantity);
+    tableRow.appendChild(itemTotal);
+    modalCart.appendChild(tableRow);
+
+    if (!cart[i].subtotalWithDiscount) {
+        finalPriceDiscount += cart[i].price;
+    } else {
+        finalRegularPrice += cart[i].subtotalWithDiscount;
+    }
+  }
+
+  const elementPrice = document.getElementById("total_price");
+  const totalPrice = finalPriceDiscount + finalRegularPrice;
+  elementPrice.innerHTML = totalPrice.toFixed(2);
+  console.log(totalPrice);
+}
 
 // ** Nivell II **
 
