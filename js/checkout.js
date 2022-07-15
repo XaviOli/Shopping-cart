@@ -1,7 +1,7 @@
 const form = document.getElementById("form");
 
-form.addEventListener("submit", (e) => {
-	e.preventDefault(validate);
+form.addEventListener("click", (event) => {
+  event.preventDefault(validate);
 });
 
 // Exercise 7
@@ -9,93 +9,95 @@ form.addEventListener("submit", (e) => {
 
 function validate() {
 
-	var error = 0;
-    
-	var firstName = document.getElementById("fName");
-    var lastName = document.getElementById("fLastN");
-    var email = document.getElementById("fEmail");
-    var password = document.getElementById("fPassword");
-	var address = document.getElementById("fAddress");
-    var phoneNumber = parseInt(document.getElementById("fPhone"));
-
- //Regular expressions for every input field
-
-    var regExp = {
-		nameExp: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letters and spaces, could have accents.
-        emailExp: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	    addressExp: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
-	    lastnExp: /^[a-zA-Z]+ [a-zA-Z]{3,}$/,
-        passwordExp: /^.{3,12}$/, // 3 to 12 digits.
-	    phoneExp: /^\d{9,14}$/, // 9 to 14 numebers.
+	let error = 0;
+	// Get the input fields
+	const fName = document.getElementById("fName");
+	const fLastName = document.getElementById("fLastN");
+	const fEmail = document.getElementById("fEmail");
+	const fPassword = document.getElementById("fPassword");
+	const fAddress = document.getElementById("fAddress");
+	const fPhone = document.getElementById("fPhone");
+  
+	// Validate fields entered by the user: name, phone, password, and email
+  
+	//Uso de expresiones regulares para asegurarnos de que el formato de nombre y email es correcto
+	const regExp = {
+	  phone: /^[0-9]{9}$/,
+	  nameAndSurname: /^[A-Za-z]{3,}$/,
+	  address: /^(?! )[A-Za-z0-9\s]{3,}$/,
+	  email: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+	  password: /^(?=.*?\d)(?=.*?[a-zA-Z])[a-zA-Z\d]+$/,
 	};
-
-	  if (regExp.nameExp.test(firstName.value)) {
-		firstName.classList.remove("is-invalid");
-		firstName.classList.add("is-valid");
-		console.log("Has escrito correctamente un nombre");
-	  } else {
-		error++;
-		firstName.classList.remove("is-valid");
-		firstName.classList.add("is-invalid");
-		console.log(error);
-	  }
-
-	  if (regExp.lastnExp.test(lastName.value)) {
-		lastName.classList.remove("is-invalid");
-		lastName.classList.add("is-valid");
-		console.log("Has escrito correctamente un apellido");
-	  } else {
-		error++;
-		lastName.classList.remove("is-invalid");
-		lastName.classList.add("is-valid");
-		console.log(error);
-	  }
-
-	  if (regExp.emailExp.test(email.value)) {
-		email.classList.remove("is-invalid");
-		email.classList.add("is-valid");
-		console.log("Has escrito un mail correcto");
-	  } else {
-		error++;
-		email.classList.remove("is-invalid");
-		email.classList.add("is-valid");
-	  }
-
-	  if (regExp.addressExp.test("address")) {
-		address.classList.remove("is-invalid");
-		address.classList.add("is-valid");
-		console.log("Has ecsrito una dirección correcta");
-	  } else {
-		error++;
-		address.classList.remove(is-invalid);
-		address.classList.add(is-valid);
-	  }
-
-	  if (regExp.phoneExp.test("phoneNumber")){
-        phoneNumber.classList.remove("is-invalid");
-		phoneNumber.classList.add("is-valid");
-	  } else {
-		error++;
-		phoneNumber.classList.remove("is-invalid");
-		phoneNumber.classList.add("is-valid");
-	  }
-
-	  if (regExp.passwordExp.test("password")); {
-	     password.classList.remove("is-invalid");
-	     password.classList.add("is-valid");
-	     console.log("Has escrito una contraseña correcta");
-	  } else {
-		error++;
-		password.classList.remove("is-invalid");
-		password.classList.add("is-valid");
-	  } 
-
-	  if (error > 0) {
-		alert("Los datos facilitados no son correctos");
-	  } else {
-		alert ("¡Muchas gracias!, hemos guardado tus datos");
-	  }
-}
-
-
-
+  
+	if (regExp.nameAndSurname.test(fName.value)) {
+	  fName.classList.remove("is-invalid")
+	  fName.classList.add("is-valid")
+	  console.log("correcto! has esctrito un nombre");
+	} else {
+	  error++;
+	  fName.classList.remove("is-valid")
+	  fName.classList.add("is-invalid");
+	  console.log(error);
+	}
+  
+	if (regExp.nameAndSurname.test(fLastName.value)) {
+	  fLastName.classList.remove("is-invalid")
+	  fLastName.classList.add("is-valid")
+	  console.log("apellido bien!");
+	} else {
+	  error++;
+	  fLastName.classList.remove("is-valid")
+	  fLastName.classList.add("is-invalid");
+	  console.log(error);
+	}
+  
+	if (regExp.email.test(fEmail.value)) {
+	  fEmail.classList.remove("is-invalid")
+	  fEmail.classList.add("is-valid")
+	  console.log("email correcto");
+	} else {
+	  error++;
+	  fEmail.classList.remove("is-valid")
+	  fEmail.classList.add("is-invalid");
+	}
+  
+	if (regExp.password.test(fPassword.value)) {
+	  fPassword.classList.remove("is-invalid")
+	  fPassword.classList.add("is-valid")
+	  console.log("contraseña bien");
+	} else {
+	  error++;
+	  fPassword.classList.remove("is-valid")
+	  fPassword.classList.add("is-invalid");
+	}
+  
+	if (regExp.address.test(fAddress.value)) {
+	  fAddress.classList.remove("is-invalid")
+	  fAddress.classList.add("is-valid")
+	  console.log("buena dirección");
+	} else {
+	  error++;
+	  fAddress.classList.remove("is-valid")
+	  fAddress.classList.add("is-invalid");
+	}
+  
+	if (regExp.phone.test(fPhone.value)) {
+	  fPhone.classList.remove("is-invalid")
+	  fPhone.classList.add("is-valid")
+	  console.log("telefono bien");
+	} else {
+	  error++;
+	  fPhone.classList.remove("is-valid")
+	  fPhone.classList.add("is-invalid");
+	}
+  
+	if (error > 0) {
+	  alert("Revisa los datos, hay algo que no va bien.");
+	} else {
+	  alert("Genial! Tus datos han sido guardados.");
+	}
+  }
+  
+  form.addEventListener("submit", (event) => {
+	event.preventDefault(validate);
+  });

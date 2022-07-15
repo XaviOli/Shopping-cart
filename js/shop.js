@@ -93,12 +93,50 @@ function cleanCart() {
 }
 
 // Exercise 3
-function calculateTotal() { // Calculate total price of the cart using the "cartList" array
-    let sum = 0;
+function calculateTotal() { 
+    // Calculate total price of the cart using the "cartList" array
+    // Let totalPrice = 0;
+
+    let productPrice = [];
+    let products = [];
+    let id1 = 0;
+    let id3 = 0;
+    applyPromotionsCart()
+
+    cartList.forEach((element) => {
+        products.push(element.id);
+    });
+
+        for (let i = 0; i < cartList.length; i++) {
+            if (products[i] === 1) {
+                id1++;
+            }
+            if (products[i] === 3) {
+                id3++;
+            }
+        };
+
+    cartList.forEach((element) => {
+        if (element.id === 1 && id1 >= 3) {
+            productPrice.push(10);
+        }
+        else if (element.id === 3 && id3 >= 10) {
+            productPrice.push(element.price * (2/3));
+        } else {
+            productPrice.push(element.price);
+        }
+    });
+
+        for (let i = 0; i < productPrice.length; i++) {
+            total += productPrice[i];
+        }
+
+
+    /*let sum = 0;
         for (let i = 0; i < cartList.length; i++) {
             sum += cartList[i].price;
         }
-        console.log(sum);
+        console.log(sum);*/
 }
 
 // Exercise 4
@@ -144,8 +182,10 @@ function printCart() {
     const modalCart = document.getElementById("cart_list");
     modalCart.innerHTML = "";
 
-    let finalPriceDiscount = 0;
-    let finalRegularPrice = 0;
+    //let finalPriceDiscount = 0;
+    //let finalRegularPrice = 0;
+
+    calculateTotal();
 
         for (let i = 0; i < cart.length; i++) {
            let tableRow = document.createElement("tr");
@@ -157,9 +197,9 @@ function printCart() {
                itemQuantity.innerHTML = cart[i].quantity;
            let itemTotal = document.createElement("td");
               if (!cart[i].subtotalWithDiscount) {
-                 itemTotal.innerHTML = cart[i].price;
+                 itemTotal.innerHTML = cart[i].price * cart[i].quantity;
               } else {
-                itemTotal.innerHTML = cart[i].subtotalWithDiscount;
+                itemTotal.innerHTML = (cart[i].subtotalWithDiscount).toFixed(2);
         }
 
     tableRow.appendChild(itemName);
@@ -168,17 +208,16 @@ function printCart() {
     tableRow.appendChild(itemTotal);
     modalCart.appendChild(tableRow);
 
-    if (!cart[i].subtotalWithDiscount) {
+    /*if (!cart[i].subtotalWithDiscount) {
         finalPriceDiscount += cart[i].price;
     } else {
         finalRegularPrice += cart[i].subtotalWithDiscount;
-    }
+    }*/
   }
 
   const elementPrice = document.getElementById("total_price");
-  const totalPrice = finalPriceDiscount + finalRegularPrice;
-  elementPrice.innerHTML = totalPrice.toFixed(2);
-  console.log(totalPrice);
+  elementPrice.innerHTML = total.toFixed(2);
+  console.log(total);
 }
 
 // ** Nivell II **
@@ -188,6 +227,7 @@ function addToCart(id) {
     // Refactor previous code in order to simplify it 
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+  
 }
 
 // Exercise 8
