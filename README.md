@@ -6,6 +6,8 @@ A company in the e-commerce sector has asked us for a web application that allow
 
 You will be in charge of setting up an initial demo version of the application for the client: management of the shopping cart and the application of the promotions on the final price. You have 2 weeks to finish, which is how long this sprint lasts.
 
+[See deployed web here](https://xavioli.github.io/Shopping-cart/)
+
 ![This image](./images/New-store.png)
 <br>
 
